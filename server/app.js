@@ -5,7 +5,7 @@ const app = express()
 require('dotenv').config()
 
 app.use(cors({
-    origin: 'http://127.0.0.1:5500',
+    origin: 'https://gabrioviski.github.io/fretus/',
     optionsSuccessStatus: 200,
 }))
 
