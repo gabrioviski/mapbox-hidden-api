@@ -6,7 +6,7 @@ require('dotenv').config()
 const accessToken = process.env.MAPBOX_KEY
 
 app.use(cors({
-    origin: 'https://gabrioviski.github.io',
+    origin: 'https://fretus.onrender.com/',
     optionsSuccessStatus: 200,
 }))
 
