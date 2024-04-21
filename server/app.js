@@ -9,7 +9,7 @@ const corsOptions = {
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ['Content-Type'],
-    origin: 'https://fretus.onrender.com/',
+    origin: 'https://fretus.onrender.com',
     optionsSuccessStatus: 200
 }
 
