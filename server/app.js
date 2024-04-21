@@ -6,17 +6,14 @@ require('dotenv').config()
 const accessToken = process.env.MAPBOX_KEY
 
 const corsOptions = {
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ['Content-Type'],
     origin: 'https://fretus.onrender.com',
     optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions))
 
-app.options('/geocoding/:query', cors(corsOptions)) // enable pre-flight request for DELETE request
-app.get('/geocoding/:query', cors(corsOptions), async (req, res) => {
+/* app.options('/geocoding/:query', cors(corsOptions)) // enable pre-flight request for DELETE request */
+app.get('/geocoding/:query', async (req, res) => {
     const { query } = req.params
     const { reverse } = req.query
     let limit = 3
@@ -31,8 +28,7 @@ app.get('/geocoding/:query', cors(corsOptions), async (req, res) => {
     res.json(dataRes)
 })
 
-app.options('/geocoding/:query', cors(corsOptions))
-app.get('/routes', cors(corsOptions), async (req, res) => {
+app.get('/routes', async (req, res) => {
     const { startLng, startLat, endLng, endLat } = req.query
     /* const pos = [-46.666042,-23.562117,-46.76131253732086,-23.486774419521012]
     const url = `https://api.mapbox.com/directions/v5/mapbox/cycling/${pos[0]},${pos[1]};${pos[2]},${pos[3]}?steps=false&overview=full&geometries=geojson&access_token=${accessToken}` */
