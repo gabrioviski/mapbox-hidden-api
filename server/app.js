@@ -29,6 +29,7 @@ app.get('/geocoding/:query', cors(corsOptions), async (req, res) => {
     res.json(dataRes)
 })
 
+app.options('/geocoding/:query', cors(corsOptions))
 app.get('/routes', cors(corsOptions), async (req, res) => {
     const { startLng, startLat, endLng, endLat } = req.query
     /* const pos = [-46.666042,-23.562117,-46.76131253732086,-23.486774419521012]
