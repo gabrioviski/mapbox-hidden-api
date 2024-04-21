@@ -6,8 +6,9 @@ require('dotenv').config()
 const accessToken = process.env.MAPBOX_KEY
 
 const corsOptions = {
+    credentials: true,
     origin: 'https://fretus.onrender.com/',
-    optionsSuccessStatus: 200,
+    optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions))
