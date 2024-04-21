@@ -6,13 +6,15 @@ require('dotenv').config()
 const accessToken = process.env.MAPBOX_KEY
 
 const corsOptions = {
+    // colocar a URL sem a "/".
+    // Exemplo Certo: https://site.com
+    // Exemplo Errado: https://site.com/
+    
     origin: 'https://fretus.onrender.com',
     optionsSuccessStatus: 200
 }
-
 app.use(cors(corsOptions))
 
-/* app.options('/geocoding/:query', cors(corsOptions)) // enable pre-flight request for DELETE request */
 app.get('/geocoding/:query', async (req, res) => {
     const { query } = req.params
     const { reverse } = req.query
