@@ -5,19 +5,12 @@ const app = express()
 require('dotenv').config()
 const accessToken = process.env.MAPBOX_KEY
 
-const whitelist = ['https://fretus.onrender.com', 'https://fretus-ohio.onrender.com']
 const corsOptions = {
     // colocar a URL sem a "/".
     // Exemplo Certo: https://site.com
     // Exemplo Errado: https://site.com/
     
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    },
+    origin: 'https://fretus.onrender.com',
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
